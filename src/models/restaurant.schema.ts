@@ -3,8 +3,16 @@ import mongoose, { Schema } from 'mongoose';
 const RestaurantSchema: Schema = new mongoose.Schema(
     {
         _id: String,
-        name: String,
-        email: String,
+        name: {
+            type: String,
+            require: true,
+            index: 'text'
+        },
+        email: {
+            type: String,
+            require: true,
+            unique: true,
+        },
         phone_number: String,
         address: String,
         description: String,
