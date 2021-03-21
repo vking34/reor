@@ -2,7 +2,7 @@ import shortid from 'shortid';
 import { Restaurant } from '../constants/interfaces/restaurant';
 import { RestaurantModel } from '../models/index';
 
-class RestaurantClass {
+class RestaurantService {
 
     static async createRestaurant(restaurant: Restaurant) {
 
@@ -19,4 +19,4 @@ class RestaurantClass {
     }
 }
 
-export default RestaurantClass;
+export default RestaurantService;
