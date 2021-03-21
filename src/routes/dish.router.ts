@@ -15,7 +15,7 @@ router.get('', async (_req: Request, res: Response) => {
 // create user
 router.post('', async (req: Request, res: Response) => {
     let dishReq = req.body;
-    console.log(dishReq);
+    // console.log(dishReq);
 
     let dish
     try {
@@ -25,7 +25,7 @@ router.post('', async (req: Request, res: Response) => {
         return res.status(500).json({
             status: false,
             message: "Can not create dish",
-            error: e,
+            error: e.message,
         })
     }
 

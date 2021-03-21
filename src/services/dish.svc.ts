@@ -1,6 +1,5 @@
-import { DishModel } from "../models"
+import { DishModel } from '../models/index'
 import shortid from 'shortid';
-
 
 class DishService {
 
@@ -16,6 +15,8 @@ class DishService {
             await DishModel.create(dish)
         }
         catch (e) {
+            // if (e.code === 11000)
+            //     throw new Error('The dish exists!')
             throw e
         }
 

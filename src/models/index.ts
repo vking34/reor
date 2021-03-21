@@ -1,10 +1,7 @@
 import mongoose from 'mongoose';
 import DishSchema from './dish.schema';
-import CategorySchema from './category.schema';
-import RestaurantSchema from './restaurant.schema'
+import OrderSchema from './order.model';
 
 
-export const CategoryModel = mongoose.model('categories', CategorySchema)
 export const DishModel = mongoose.model('dishes', DishSchema)
-export const RestaurantModel = mongoose.model('restaurants', RestaurantSchema)
-
+export const OrderModel = mongoose.model('orders', OrderSchema)

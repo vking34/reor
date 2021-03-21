@@ -7,10 +7,15 @@ const DishSchema: Schema = new mongoose.Schema(
         name: {
             type: String,
             require: true,
-            index: 'text'
+            index: 'text',
+            unique: true
         },
         categories: [{ type: String }],
-        price: Number,
+        price: {
+            type: Number,
+            require: true,
+            min: 0
+        },
     },
     { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
 )
