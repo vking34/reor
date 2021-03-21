@@ -8,7 +8,9 @@ const router: Router = express.Router();
 router.get('', async (_req: Request, res: Response) => {
     let dishes = await DishService.findAllDishes()
 
-    return res.json(dishes);
+    return res.json({
+        dishes
+    });
 })
 
 
@@ -22,7 +24,8 @@ router.post('', async (req: Request, res: Response) => {
         dish = await DishService.createDish(dishReq)
     }
     catch (e) {
-        return res.status(500).json({
+        let statusCode: number = e.code === 11000 ? 400 : 500;
+        return res.status(statusCode).json({
             status: false,
             message: "Can not create dish",
             error: e.message,
@@ -31,7 +34,7 @@ router.post('', async (req: Request, res: Response) => {
 
     return res.json({
         status: true,
-        data: dish,
+        dish,
     })
 })
 
