@@ -3,7 +3,6 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import http from 'http';
-import api from './routes/index';
 import mongoose, { ConnectOptions } from 'mongoose';
 
 require('dotenv').config();
@@ -34,6 +33,7 @@ app.use(cors());
 
 
 // routes
+import api from './routes/index';
 app.use('/api/v1', api)
 
 

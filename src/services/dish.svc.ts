@@ -25,8 +25,3 @@ class DishService {
 }
 
 export default DishService;
-
-// export const findAllDishes = async () => {
-//     let dishes = await DishModel.find();
-//     return dishes; 
-// }
