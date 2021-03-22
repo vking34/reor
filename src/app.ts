@@ -37,6 +37,10 @@ app.use(cors());
 app.use('/api/v1', api)
 
 
+require('./utils/telegram')
+import sendMsg from './utils/tele.ex';
+sendMsg()
+
 // start server
 server.listen(port, () => {
     console.log('Server listening at port %d', port);
