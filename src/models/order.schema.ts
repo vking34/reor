@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import DishSchema from './dish.schema';
+import { FlexibleDishSchema } from './dish.schema';
 
 
 const OrderSchema: Schema = new mongoose.Schema(
@@ -7,7 +7,7 @@ const OrderSchema: Schema = new mongoose.Schema(
         _id: String,
         orders: [
             {
-                dish: DishSchema,
+                dish: FlexibleDishSchema,
                 quantity: Number,
             }
         ],

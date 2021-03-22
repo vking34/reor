@@ -6,7 +6,6 @@ const router: Router = express.Router();
 
 router.post('', async (req: Request, res: Response) => {
     const orderReq = req.body;
-    console.log(orderReq);
 
     try {
         let bill = await OrderService.createOrder(orderReq)
@@ -15,7 +14,7 @@ router.post('', async (req: Request, res: Response) => {
             bill,
         })
     }
-    catch (e){
+    catch (e) {
         return res.status(500).json({
             status: false,
             message: 'Can not order!',
