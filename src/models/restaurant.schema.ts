@@ -13,6 +13,7 @@ const RestaurantSchema: Schema = new mongoose.Schema(
             require: true,
             unique: true,
         },
+        telegram_chat_id: String,
         phone_number: String,
         address: String,
         description: String,

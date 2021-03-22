@@ -1,6 +1,6 @@
 import { OrderModel } from '../models/index';
 import shortid from 'shortid';
-import sendNotification from './email.svc';
+import sendNotification from './notification.svc';
 
 
 export default class OrderService {

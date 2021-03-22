@@ -1,11 +1,24 @@
 import TelegramBot from 'node-telegram-bot-api';
 
+console.log('bot token:', process.env.TELEGRAM_BOT_TOKEN);
 
-const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true })
+let bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true })
 
 bot.on('message', msg => {
     console.log(msg);
-
 })
 
-export default bot
+export const configBot = (token: string) => {
+    bot = new TelegramBot(token, {polling: true});
+}
+
+export default async (chatId: string | number, text: string) => {
+    try {
+        // const msg = await bot.sendMessage(-537436481, 'test bot1')
+        const msg = await bot.sendMessage(chatId, text);
+        console.log(msg);
+    }
+    catch (e) {
+        console.log('error:', e);
+    }
+}
