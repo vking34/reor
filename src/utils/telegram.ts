@@ -9,7 +9,7 @@ bot.on('message', msg => {
 })
 
 export const configBot = (token: string) => {
-    bot = new TelegramBot(token, {polling: true});
+    bot = new TelegramBot(token, { polling: true });
 }
 
 export default async (chatId: string | number, text: string) => {

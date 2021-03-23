@@ -4,8 +4,11 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import http from 'http';
 import mongoose, { ConnectOptions } from 'mongoose';
+import dotenv from 'dotenv';
 
-require('dotenv').config();
+// load env vars
+dotenv.config({ path: './.env' })
+dotenv.config({ path: './.secure.env' })
 
 // server
 const port = process.env.PORT || 3000;
