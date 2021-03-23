@@ -2,6 +2,10 @@
 
 A web app for ordering dishes in a restaurant
 
+## API Docs
+
+- https://documenter.getpostman.com/view/4640091/TzCFhqvq
+
 ## Prerequisites
 
 - To use AWS SES:
@@ -14,7 +18,25 @@ A web app for ordering dishes in a restaurant
     - Invite bot into a group
     - Set bot as administrator in the group
     - Set env var: ```TELEGRAM_BOT_TOKEN```
-    
+
+
+## Heroku Deployment
+
+- Create app on heroku
+
+- Create ```Procfile``` to help heroku how to run the app
+
+- Add remote repo on heroku:
+    ```
+    heroku git:clone -a vg-reor
+    ```
+
+- Commit code
+
+- Push to heroku:
+    ```
+    git push heroku master
+    ```
 
 ## ER Diagram
 
