@@ -1,24 +1,24 @@
-import { CategoryModel } from '../models/index';
-import shortid from 'shortid';
+// import { CategoryModel } from '../models/index';
+// import shortid from 'shortid';
 
 
-class CategoryService {
+// class CategoryService {
 
-    static async createCategory(name: string) {
-        let category = {
-            _id: shortid(),
-            name,
-        }
+//     static async createCategory(name: string) {
+//         let category = {
+//             _id: shortid(),
+//             name,
+//         }
 
-        try {
-            await CategoryModel.create(category)
-        }
-        catch (e) {
-            throw e
-        }
+//         try {
+//             await CategoryModel.create(category)
+//         }
+//         catch (e) {
+//             throw e
+//         }
 
-        return category;
-    }
-}
+//         return category;
+//     }
+// }
 
-export default CategoryService;
+// export default CategoryService;
