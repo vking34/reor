@@ -22,7 +22,7 @@ class RestaurantService {
         let result;
         try {
             result = await RestaurantModel.findById(_id);
-            if (!result) throw new Error('Restaurant not found');
+            if (!result) return null;
         }
         catch (e) {
             throw e;

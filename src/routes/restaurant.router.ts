@@ -40,6 +40,12 @@ router.put('/:id', async (req: Request, res: Response) => {
         })
     }
 
+    if (!restaurant)
+        return res.status(400).json({
+            status: false,
+            message: 'Restaurant not found'
+        })
+
     return res.json({
         status: true,
         restaurant
