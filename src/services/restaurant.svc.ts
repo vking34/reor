@@ -17,6 +17,27 @@ class RestaurantService {
 
         return restaurant
     }
+
+    static async update(_id: string, update: any) {
+        let result;
+        try {
+            result = await RestaurantModel.findById(_id);
+            if (!result) throw new Error('Restaurant not found');
+        }
+        catch (e) {
+            throw e;
+        }
+
+        const restaurant = { ...result._doc, ...update }
+        try {
+            await RestaurantModel.updateOne({ _id }, update);
+        }
+        catch (e) {
+            throw e;
+        }
+
+        return restaurant
+    }
 }
 
 export default RestaurantService;
