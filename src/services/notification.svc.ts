@@ -2,7 +2,7 @@ import { RestaurantModel } from '../models/index';
 import sendEmail from '../utils/ses';
 import sendTeleMsg from '../utils/telegram';
 
-const DEFAULT_EMAIL: string = process.env.EMAIL;
+const DEFAULT_EMAIL: string = process.env.DEFAULT_EMAIL;
 
 const sendNotificationByEmail = (receiver: string, order: any) => {
     const subject: string = 'Order from ' + order.phone_number;
