@@ -3,7 +3,7 @@ import shortid from 'shortid';
 
 class DishService {
 
-    static async findAllDishes() {
+    static async findAll() {
         let dishes = await DishModel.find();
         return dishes;
     }

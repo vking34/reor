@@ -20,7 +20,7 @@ export default class OrderService {
             dishMap.set(id, order);
             return id
         });
-        console.log(dishIds);
+        // console.log(dishIds);
 
         let dishes;
         try {

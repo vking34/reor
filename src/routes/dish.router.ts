@@ -9,7 +9,7 @@ const router: Router = express.Router();
 
 // Get dishes
 router.get('', async (_req: Request, res: Response) => {
-    let dishes = await DishService.findAllDishes()
+    let dishes = await DishService.findAll()
 
     return res.json({
         dishes
