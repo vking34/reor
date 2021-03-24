@@ -6,7 +6,7 @@ import http from 'http';
 import mongoose, { ConnectOptions } from 'mongoose';
 import dotenv from 'dotenv';
 
-// // load env vars
+// load env vars
 try {
     dotenv.config({ path: './.env' })
     dotenv.config({ path: './.secure.env' })

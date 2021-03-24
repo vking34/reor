@@ -1,7 +1,7 @@
 import express, { Response, Request, Router } from "express";
 import DishService from '../services/dish.svc';
 import { checkSchema } from 'express-validator/check';
-import { DishCreationSchema } from '../constants/validations/dish.schema';
+import { DishCreationSchema } from '../constants/validation-schemas/dish';
 import validate from '../utils/validator';
 
 const router: Router = express.Router();

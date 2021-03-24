@@ -1,10 +1,13 @@
 import express, { Response, Request, Router } from 'express';
 import OrderService from '../services/order.svc';
+import validate from '../utils/validator'
+import { checkSchema } from 'express-validator';
+import { OrderCreationSchema } from '../constants/validation-schemas/order';
 
 
 const router: Router = express.Router();
 
-router.post('', async (req: Request, res: Response) => {
+router.post('', validate(checkSchema(OrderCreationSchema)), async (req: Request, res: Response) => {
     const orderReq = req.body;
 
     try {

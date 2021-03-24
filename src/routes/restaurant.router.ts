@@ -2,7 +2,7 @@ import express, { Response, Request, Router } from "express";
 import RestaurantService from '../services/restaurant.svc';
 import validate from '../utils/validator';
 import { checkSchema } from 'express-validator';
-import { RestaurantCreationSchema } from '../constants/validations/restaurant.schema';
+import { RestaurantCreationSchema } from '../constants/validation-schemas/restaurant';
 
 
 const router: Router = express.Router();
