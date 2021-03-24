@@ -22,6 +22,17 @@ class DishService {
 
         return dish
     }
+
+    static async findByIds(ids: string[]) {
+        try {
+            const dishes = await DishModel.find({ _id: { $in: ids } });
+            console.log(dishes);
+            return dishes;
+        }
+        catch (e) {
+            throw e
+        }
+    }
 }
 
 export default DishService;
