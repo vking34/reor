@@ -1,5 +1,8 @@
 import express, { Response, Request, Router } from "express";
 import DishService from '../services/dish.svc';
+import { checkSchema } from 'express-validator/check';
+import { DishCreationSchema } from '../constants/validations/dish.schema';
+import validate from '../utils/validator';
 
 const router: Router = express.Router();
 // const dishService = new DishService();
@@ -15,7 +18,7 @@ router.get('', async (_req: Request, res: Response) => {
 
 
 // create user
-router.post('', async (req: Request, res: Response) => {
+router.post('', validate(checkSchema(DishCreationSchema)), async (req: Request, res: Response) => {
     let dishReq = req.body;
     // console.log(dishReq);
 

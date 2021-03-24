@@ -4,12 +4,16 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import http from 'http';
 import mongoose, { ConnectOptions } from 'mongoose';
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 // // load env vars
-// dotenv.config({ path: './.env' })
-// dotenv.config({ path: './.secure.env' })
-
+try {
+    dotenv.config({ path: './.env' })
+    dotenv.config({ path: './.secure.env' })
+}
+catch (e) {
+    console.log('No loading env vars', e);
+}
 // server
 const port = process.env.PORT || 3000;
 const app = express();
