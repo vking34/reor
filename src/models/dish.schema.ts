@@ -7,7 +7,6 @@ const DishSchema: Schema = new mongoose.Schema(
         name: {
             type: String,
             require: true,
-            index: 'text',
             unique: true
         },
         categories: [{ type: String }],
@@ -16,6 +15,16 @@ const DishSchema: Schema = new mongoose.Schema(
             require: true,
             min: 0
         },
+        description: {
+            type: String,
+            require: true,
+            default: ''
+        },
+        pictures: {
+            type: [{ type: String }],
+            default: []
+        },
+        options: [{ type: String }]
     },
     { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
 )

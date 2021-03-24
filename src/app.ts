@@ -14,10 +14,6 @@ try {
 catch (e) {
     console.log('No loading env vars', e);
 }
-// server
-const port = process.env.PORT || 3000;
-const app = express();
-export const server = http.createServer(app);
 
 
 // DB
@@ -31,6 +27,12 @@ mongoose.Promise = global.Promise;
 mongoose.connection.once('open', () => {
     console.log('Connected to mongoDB!');
 });
+
+
+// server
+const port = process.env.PORT || 3000;
+const app = express();
+export const server = http.createServer(app);
 
 
 // middlewares

@@ -23,5 +23,9 @@ export const DishCreationSchema: Schema = {
             options: { min: 1 },
         },
         errorMessage: 'The dish must have at least one category.'
+    },
+    description: {
+        notEmpty: true,
+        errorMessage: 'The description is required.'
     }
 }

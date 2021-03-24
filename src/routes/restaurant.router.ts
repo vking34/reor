@@ -1,9 +1,13 @@
 import express, { Response, Request, Router } from "express";
 import RestaurantService from '../services/restaurant.svc';
+import validate from '../utils/validator';
+import { checkSchema } from 'express-validator';
+import { RestaurantCreationSchema } from '../constants/validations/restaurant.schema';
+
 
 const router: Router = express.Router();
 
-router.post('', async (req: Request, res: Response) => {
+router.post('', validate(checkSchema(RestaurantCreationSchema)), async (req: Request, res: Response) => {
     let restaurantReq = req.body;
 
     let restaurant

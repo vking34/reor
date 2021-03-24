@@ -6,7 +6,7 @@ const RestaurantSchema: Schema = new mongoose.Schema(
         name: {
             type: String,
             require: true,
-            index: 'text'
+            unique: true
         },
         email: {
             type: String,

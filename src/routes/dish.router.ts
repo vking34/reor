@@ -31,7 +31,7 @@ router.post('', validate(checkSchema(DishCreationSchema)), async (req: Request, 
         return res.status(statusCode).json({
             status: false,
             message: "Can not create dish",
-            error: e.message,
+            error: [{ msg: e.message }],
         })
     }
 
