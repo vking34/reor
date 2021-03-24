@@ -1,4 +1,4 @@
-import { Schema } from 'express-validator/check';
+import { Schema } from 'express-validator';
 
 export const RestaurantCreationSchema: Schema = {
     name: {

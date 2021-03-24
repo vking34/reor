@@ -4,15 +4,17 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import http from 'http';
 import mongoose, { ConnectOptions } from 'mongoose';
-import dotenv from 'dotenv';
 
-// load env vars
-try {
-    dotenv.config({ path: './.env' })
-    dotenv.config({ path: './.secure.env' })
-}
-catch (e) {
-    console.log('No loading env vars', e);
+if (!process.env.ENV) {
+    const dotenv = require('dotenv');
+    // load env vars
+    try {
+        dotenv.config({ path: './.env' })
+        dotenv.config({ path: './.secure.env' })
+    }
+    catch (e) {
+        console.log('No loading env vars', e);
+    }
 }
 
 

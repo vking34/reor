@@ -1,6 +1,6 @@
 import express, { Response, Request, Router } from "express";
 import DishService from '../services/dish.svc';
-import { checkSchema } from 'express-validator/check';
+import { checkSchema } from 'express-validator';
 import { DishCreationSchema } from '../constants/validation-schemas/dish';
 import validate from '../utils/validator';
 
