@@ -22,5 +22,11 @@ export const RestaurantCreationSchema: Schema = {
     address: {
         notEmpty: true,
         errorMessage: 'Address is missing!'
+    },
+    telegram_chat_id: {
+        isLength: {
+            options: { min: 0, max: 12 }
+        },
+        errorMessage: 'Invalid telegram chat id.'
     }
 }

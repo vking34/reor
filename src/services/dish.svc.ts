@@ -33,6 +33,27 @@ class DishService {
             throw e
         }
     }
+
+    static async update(_id: string, update: any) {
+        let result
+        try {
+            result = await DishModel.findById(_id)
+            if (!result) return null;
+        }
+        catch (e) {
+            throw e;
+        }
+
+        const dish = { ...result._doc, ...update }
+        try {
+            await DishModel.updateOne({ _id }, update);
+        }
+        catch (e) {
+            throw e
+        }
+
+        return dish;
+    }
 }
 
 export default DishService;

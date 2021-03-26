@@ -3,7 +3,7 @@ import RestaurantService from '../services/restaurant.svc';
 import validate from '../utils/validator';
 import { checkSchema } from 'express-validator';
 import { RestaurantCreationSchema } from '../constants/validation-schemas/restaurant';
-
+import handleError from '../utils/error_handler';
 
 const router: Router = express.Router();
 
@@ -15,11 +15,7 @@ router.post('', validate(checkSchema(RestaurantCreationSchema)), async (req: Req
         restaurant = await RestaurantService.createRestaurant(restaurantReq)
     }
     catch (e) {
-        return res.status(500).json({
-            status: false,
-            message: "Can not create restaurant",
-            error: e.message
-        })
+        return handleError(res, e, 'Can not create restaurant.');
     }
 
     return res.json({
@@ -28,7 +24,7 @@ router.post('', validate(checkSchema(RestaurantCreationSchema)), async (req: Req
     })
 })
 
-router.put('/:id', async (req: Request, res: Response) => {
+router.put('/:id', validate(checkSchema(RestaurantCreationSchema)), async (req: Request, res: Response) => {
     const restaurantId = req.params.id;
     let update = req.body;
 
@@ -37,11 +33,7 @@ router.put('/:id', async (req: Request, res: Response) => {
         restaurant = await RestaurantService.update(restaurantId, update);
     }
     catch (e) {
-        return res.status(500).json({
-            status: false,
-            message: 'Can not update restaurant',
-            error: e.message
-        })
+        return handleError(res, e, 'Can not update restaurant.');
     }
 
     if (!restaurant)
