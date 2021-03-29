@@ -10,7 +10,9 @@ const router: Router = express.Router();
 
 // Get dishes
 router.get('', async (req: Request, res: Response) => {
-    const category: string = req.query.category.toString();
+    const category: string = req.query.category as string;
+    console.log('category:', category);
+    
     let dishes;
 
     try {
