@@ -24,5 +24,12 @@ export const OrderCreationSchema: Schema = {
             options: /^[0-9]*$/,
             errorMessage: 'Invalid phone number.'
         }
+    },
+    note: {
+        optional: true,
+        isLength: {
+            options: { max: 500 },
+            errorMessage: 'The length of note is too long.'
+        }
     }
 }

@@ -9,14 +9,26 @@ const router: Router = express.Router();
 // const dishService = new DishService();
 
 // Get dishes
-router.get('', async (_req: Request, res: Response) => {
-    let dishes = await DishService.findAll()
+router.get('', async (req: Request, res: Response) => {
+    const category: string = req.query.category.toString();
+    let dishes;
+
+    try {
+        if (category) {
+            dishes = await DishService.findByCategory(category);
+        }
+        else {
+            dishes = await DishService.findAll()
+        }
+    }
+    catch (_e) {
+        dishes = []
+    }
 
     return res.json({
         dishes
     });
 })
-
 
 // create dish
 router.post('', validate(checkSchema(DishCreationSchema)), async (req: Request, res: Response) => {
@@ -59,6 +71,21 @@ router.put('/:id', validate(checkSchema(DishUpdateSchema)), async (req: Request,
         status: true,
         dish
     })
+})
+
+// Get dishes by category
+router.get('/categories/:category', async (req: Request, res: Response) => {
+    const category: string = req.params.category;
+
+    let dishes;
+    try {
+        dishes = await DishService.findByCategory(category);
+    }
+    catch (e) {
+        dishes = []
+    }
+
+    return res.json({ dishes });
 })
 
 export default router;

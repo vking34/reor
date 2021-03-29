@@ -54,6 +54,19 @@ class DishService {
 
         return dish;
     }
+
+    static async findByCategory(category: string) {
+        let dishes;
+
+        try {
+            dishes = await DishModel.find({ categories: category });
+        }
+        catch (e) {
+            throw e;
+        }
+
+        return dishes;
+    }
 }
 
 export default DishService;

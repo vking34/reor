@@ -13,7 +13,8 @@ const OrderSchema: Schema = new mongoose.Schema(
         ],
         total_bill: Number,
         customer_name: String,
-        phone_number: String
+        phone_number: String,
+        note: String
     },
     { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
 )
