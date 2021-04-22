@@ -1,7 +1,6 @@
 # REOR
 
-A web app for ordering dishes in a restaurant
-
+A web app for ordering food
 ## API Docs
 
 - https://documenter.getpostman.com/view/4640091/TzCFhqvq
